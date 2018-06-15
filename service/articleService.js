@@ -62,7 +62,7 @@ exports.update = function (req, res) {
 exports.destroy = function (req, res) {
   model.article.destroy({
     where: {
-      id: req.params.user
+      id: req.params.article
     }
   });
 

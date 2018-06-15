@@ -8,9 +8,9 @@
 const model = require('../configdb/sequelize')
 
 exports.index = function (req, res) {
-  model.users.findAll({
+  model.cart.findAll({
     include: [{
-      model: model.symptom
+      model: model.product
     }]
   }).then(result => {
     res.json(result);
@@ -22,28 +22,21 @@ exports.new = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  model.users.create({
+  model.cart.create({
     id: '',
-    name: req.body.name,
-    lastname: req.body.lastname,
-    telephone: req.body.telephone,
-    gender: req.body.gender,
-    symptomId: req.body.symptomId,
-    typeUser: req.body.typeUser,
-    status: req.body.status,
+    product_id: req.body.name,
+    count: req.body.count,
+    cheakOut: req.body.cheakOut,
     createdAt: new Date(),
     updatedAt: new Date()
   })
 };
 
 exports.show = function (req, res) {
-  model.users.findAll({
+  model.cart.findAll({
       where: {
-        id: req.params.user
-      },
-      include: [{
-        model: model.symptom
-      }]
+        id: req.params.cart
+      }
     })
     .then(result => {
       res.json(result);
@@ -55,14 +48,10 @@ exports.edit = function (req, res) {
 };
 
 exports.update = function (req, res) {
-  model.users.update({
-    name: req.body.name,
-    lastname: req.body.lastname,
-    telephone: req.body.telephone,
-    gender: req.body.gender,
-    symptomId: req.body.symptomId,
-    typeUser: req.body.typeUser,
-    status: req.body.status,
+  model.cart.update({
+    product_id: req.body.name,
+    count: req.body.count,
+    cheakOut: req.body.cheakOut,
     updatedAt: new Date()
   }, {
     where: {
@@ -72,9 +61,9 @@ exports.update = function (req, res) {
 };
 
 exports.destroy = function (req, res) {
-  model.users.destroy({
+  model.cart.destroy({
     where: {
-      id: req.params.user
+      id: req.params.cart
     }
   });
 
