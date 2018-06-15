@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: false,
         },
         typeArticle:{
-            field: 'typea_article',
+            field: 'type_article',
             type: DataTypes.STRING(191),
             primaryKey: false,
             autoIncrement: false,

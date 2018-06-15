@@ -2,18 +2,22 @@
 
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('cart', {
-        id: {
+        id: {   
             field: 'id',
             type: DataTypes.INTEGER(10).UNSIGNED,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
         },
-        product_id:{
-            field: 'product_name',
+        productId:{
+            field: 'product_id',
             type: DataTypes.INTEGER(10).UNSIGNED,
             primaryKey: true,
             autoIncrement: false,
+            references: {
+                model: "products",
+                key: "id"
+            }
         },
         count:{
             field: 'image',

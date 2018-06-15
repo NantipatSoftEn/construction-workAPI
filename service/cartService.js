@@ -24,7 +24,7 @@ exports.new = function (req, res) {
 exports.create = function (req, res) {
   model.cart.create({
     id: '',
-    product_id: req.body.name,
+    productId: req.body.productId,
     count: req.body.count,
     cheakOut: req.body.cheakOut,
     createdAt: new Date(),
@@ -36,7 +36,10 @@ exports.show = function (req, res) {
   model.cart.findAll({
       where: {
         id: req.params.cart
-      }
+      },
+      include: [{
+        model: model.product
+      }]
     })
     .then(result => {
       res.json(result);
@@ -49,7 +52,7 @@ exports.edit = function (req, res) {
 
 exports.update = function (req, res) {
   model.cart.update({
-    product_id: req.body.name,
+    productId: req.body.productId,
     count: req.body.count,
     cheakOut: req.body.cheakOut,
     updatedAt: new Date()
