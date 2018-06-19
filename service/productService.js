@@ -21,6 +21,7 @@ exports.create = function (req, res) {
   model.product.create({
     id: '',
     name: req.body.name,
+    image: req.body.image,
     type: req.body.type,
     des: req.body.des,
     price: req.body.price,
@@ -48,6 +49,7 @@ exports.update = function (req, res) {
   model.product.update({
     id: '',
     name: req.body.name,
+    image: req.body.image,
     type: req.body.type,
     des: req.body.des,
     price: req.body.price,

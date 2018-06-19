@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: false,
             autoIncrement: false,
         },
+        image:{
+            field: 'image',
+            type: DataTypes.STRING(191),
+            primaryKey: false,
+            autoIncrement: false,
+        },
         type:{
             field: 'type',
             type: DataTypes.INTEGER(1),

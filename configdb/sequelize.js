@@ -27,6 +27,7 @@ sequelize.sync()
     .then(() => model.product.create({
       id: '',
       name: 'yeddsdf',
+      image: 'http://via.placeholder.com/350x150',
       type: 1,
       des: 'asdadad',
       price:200,
@@ -55,6 +56,6 @@ model.cart =  require('../models/cart')(sequelize, Sequelize);
 model.product =  require('../models/product')(sequelize, Sequelize);
 model.project =  require('../models/project')(sequelize, Sequelize);
 
-model.cart.hasMany(model.product);
-model.product.belongsTo(model.cart)
+
+
 module.exports = model;
