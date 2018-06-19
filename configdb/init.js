@@ -7,6 +7,16 @@ sequelize.sync()
         createdAt: '',
         updatedAt: ''
     }))
+    .then(() => model.product.create({
+      id: '',
+      name: 'yeddsdf',
+      image: 'http://via.placeholder.com/350x150',
+      type: 1,
+      des: 'asdadad',
+      price:200,
+      createdAt: '',
+      updatedAt: ''
+  }))
     .then(() => model.cart.create({
         id: '',
         productId: 1,
@@ -15,15 +25,7 @@ sequelize.sync()
         createdAt: '',
         updatedAt: ''
     }))
-    .then(() => model.product.create({
-        id: '',
-        name: 'yeddsdf',
-        type: 1,
-        des: 'asdadad',
-        price:200,
-        createdAt: '',
-        updatedAt: ''
-    }))
+
     .then(() => model.project.create({
         id: '',
         name: 'asdsadsa',

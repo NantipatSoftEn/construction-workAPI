@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         count:{
-            field: 'image',
+            field: 'count',
             type: DataTypes.INTEGER(10),
             primaryKey: false,
             autoIncrement: false,
