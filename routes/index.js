@@ -7,9 +7,11 @@ var articleServices = require('../service/articleService');
 var cartServices = require('../service/cartService');
 var productServices = require('../service/productService');
 var projectServices = require('../service/projectService');
+var userServices = require('../service/userService');
 
 app.resource('article', articleServices);
 app.resource('cart', cartServices);
 app.resource('product', productServices);
 app.resource('project', projectServices);
+app.resource('project', userServices);
 module.exports = app;

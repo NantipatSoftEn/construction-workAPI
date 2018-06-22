@@ -17,8 +17,8 @@ exports.new = function (req, res) {
   res.send('new forum');
 };
 
-exports.create = function (req, res) {
-  model.product.create({
+exports.create = async function (req, res) {
+  await model.product.create({
     id: '',
     name: req.body.name,
     image: req.body.image,
@@ -27,10 +27,12 @@ exports.create = function (req, res) {
     price: req.body.price,
     createdAt: new Date(),
     updatedAt: new Date()
-  })
+  }).then(result => {
+    res.send("sucess");
+})
 };
 
-exports.show = function (req, res) {
+exports.show =  function (req, res) {
   model.product.findAll({
       where: {
         id: req.params.product
@@ -45,8 +47,8 @@ exports.edit = function (req, res) {
   res.send('edit forum ' + req.params.forum);
 };
 
-exports.update = function (req, res) {
-  model.product.update({
+exports.update = async function (req, res) {
+  await model.product.update({
     id: '',
     name: req.body.name,
     image: req.body.image,
@@ -58,14 +60,18 @@ exports.update = function (req, res) {
     where: {
       id: req.params.product
     }
-  })
+  }).then(result => {
+    res.send("sucess");
+})
 };
 
-exports.destroy = function (req, res) {
-  model.product.destroy({
+exports.destroy = async function (req, res) {
+  await model.product.destroy({
     where: {
       id: req.params.product
     }
-  });
+  }).then(result => {
+    res.send("sucess");
+})
 
 };

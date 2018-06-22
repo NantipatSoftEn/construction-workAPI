@@ -17,8 +17,8 @@ exports.new = function (req, res) {
   res.send('new forum');
 };
 
-exports.create = function (req, res) {
-  model.article.create({
+exports.create =  async function (req, res) {
+  await model.article.create({
     id: '',
     title: req.body.title,
     image: req.body.image,
@@ -26,7 +26,9 @@ exports.create = function (req, res) {
     typeArticle: req.body.typeArticle,
     createdAt: new Date(),
     updatedAt: new Date()
-  })
+  }).then(result => {
+    res.send("sucess");
+})
 };
 
 exports.show = function (req, res) {
@@ -44,8 +46,8 @@ exports.edit = function (req, res) {
   res.send('edit forum ' + req.params.forum);
 };
 
-exports.update = function (req, res) {
-  model.article.update({
+exports.update = async function (req, res) {
+  await model.article.update({
     id: '',
     title: req.body.title,
     image: req.body.image,
@@ -56,14 +58,18 @@ exports.update = function (req, res) {
     where: {
       id: req.params.article
     }
-  })
+  }).then(result => {
+    res.send("sucess");
+})
 };
 
-exports.destroy = function (req, res) {
-  model.article.destroy({
+exports.destroy = async function (req, res) {
+  await model.article.destroy({
     where: {
       id: req.params.article
     }
-  });
+  }).then(result => {
+    res.send("sucess");
+})
 
 };
