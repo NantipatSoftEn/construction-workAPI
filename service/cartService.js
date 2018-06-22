@@ -22,15 +22,16 @@ exports.new = function (req, res) {
 };
 
 exports.create = async function (req, res) {
+  
   await model.cart.create({
     id: '',
     productId: req.body.productId,
     count: req.body.count,
-    cheakOut: req.body.cheakOut,
+    checkOut: req.body.cheakOut,
     createdAt: new Date(),
     updatedAt: new Date()
   }).then(result => {
-    res.send("sucess");
+    res.send("sucess" );
   })
 };
 

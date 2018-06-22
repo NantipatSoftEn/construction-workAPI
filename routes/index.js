@@ -13,5 +13,6 @@ app.resource('article', articleServices);
 app.resource('cart', cartServices);
 app.resource('product', productServices);
 app.resource('project', projectServices);
-app.resource('project', userServices);
+app.resource('user', userServices);
+
 module.exports = app;

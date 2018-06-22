@@ -20,7 +20,8 @@ model.article =  require('../models/article')(sequelize, Sequelize);
 model.cart =  require('../models/cart')(sequelize, Sequelize);
 model.product =  require('../models/product')(sequelize, Sequelize);
 model.project =  require('../models/project')(sequelize, Sequelize);
-model.user=  require('../models/user')(sequelize, Sequelize);
+model.users=  require('../models/user')(sequelize, Sequelize);
 
-
+model.cart.belongsTo(model.product);
+model.product.hasMany(model.cart); // take userId to reseration
 module.exports = model;
