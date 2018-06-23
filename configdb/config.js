@@ -1,4 +1,4 @@
-const type = 'construction-work';
+const type = 'construction_work';
 /* server
     production: node
     develop: dev
