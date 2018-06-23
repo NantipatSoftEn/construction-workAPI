@@ -6,7 +6,7 @@ const type = 'construction-work';
 // exports.server = type === 'dev' ? 'dev' : 'node';
 exports.server = type;
 exports.username = 'root';
-exports.password = '';
+exports.password = 'root';
 /* port
     production: 3000,
     develop: 7000
