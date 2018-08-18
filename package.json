@@ -16,6 +16,8 @@
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "sequelize": "^4.37.10"
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.37.10",
+    "sequelize-cli": "^4.0.0"
   }
 }

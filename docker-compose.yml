@@ -1,0 +1,39 @@
+version: "2"
+services: 
+  mysql: 
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql/db:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - 8080:80
+  web:
+    build:
+      context: .
+      dockerfile: web.Dockerfile
+    ports:
+      - 4000:4000
+    links:
+      - mysql
+  server:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - web
+    volumes:
+      - $HOME/.caddy:/root/.caddy

@@ -2,7 +2,7 @@
 const config = require('./config');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(config.server, config.username, config.password, {
-    host: 'localhost',
+    host: 'mysql',
     dialect: 'mysql',
     define: {
         timestamps: true
