@@ -21,14 +21,17 @@ exports.new = function (req, res) {
   res.send('new forum');
 };
 
-exports.create = function (req, res) {
-  model.cart.create({
+exports.create = async function (req, res) {
+  
+  await model.cart.create({
     id: '',
     productId: req.body.productId,
     count: req.body.count,
-    cheakOut: req.body.cheakOut,
+    checkOut: req.body.cheakOut,
     createdAt: new Date(),
     updatedAt: new Date()
+  }).then(result => {
+    res.send("sucess" );
   })
 };
 
@@ -50,8 +53,8 @@ exports.edit = function (req, res) {
   res.send('edit forum ' + req.params.forum);
 };
 
-exports.update = function (req, res) {
-  model.cart.update({
+exports.update = async function (req, res) {
+  await model.cart.update({
     productId: req.body.productId,
     count: req.body.count,
     cheakOut: req.body.cheakOut,
@@ -60,14 +63,18 @@ exports.update = function (req, res) {
     where: {
       id: req.params.user
     }
+  }).then(result => {
+    res.send("sucess");
   })
 };
 
-exports.destroy = function (req, res) {
-  model.cart.destroy({
+exports.destroy = async function (req, res) {
+  await model.cart.destroy({
     where: {
       id: req.params.cart
     }
-  });
+  }).then(result => {
+    res.send("sucess");
+  })
 
 };
