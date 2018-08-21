@@ -1,5 +1,5 @@
 # create a file named Dockerfile
-FROM node:alpine
+FROM node:8-jessie
 RUN mkdir /app
 WORKDIR /app
 COPY package.json /app

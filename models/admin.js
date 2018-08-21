@@ -13,6 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         updatedAt: 'updated_at'
     })
 
-
+    admin.sync();
     return admin;
 }

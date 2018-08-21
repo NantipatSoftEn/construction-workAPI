@@ -1,7 +1,8 @@
 'use strict';
+const host = (process.env.DOCKER === 'yes') ? 'mysql' : 'localhost';
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-    host: 'mysql',
+    host,
     dialect: 'mysql',
     define: {
         timestamps: true

@@ -6,7 +6,6 @@ const model = require('../configdb/sequelize');
 const UserDTO = require('../dto/UserDTO');
 
 
-
 class AdminServices {
     constructor() {
         this.router = router;
@@ -21,7 +20,7 @@ class AdminServices {
         
 
         try {
-            let user = await model.user.findOne({
+            let user = await model.admin.findOne({
                 where: {
                     username
                 }
@@ -63,7 +62,7 @@ class AdminServices {
 
         try {
               
-            const existUser = await model.user.findOne({
+            const existUser = await model.admin.findOne({
                 where: {
                     username
                 }
@@ -72,7 +71,7 @@ class AdminServices {
             if(existUser) {
                 throw "user is exist in database";
             } else {
-                user = await model.user.create(data);
+                user = await model.admin.create(data);
                 user = new UserDTO(user).toObject();
             }
 
