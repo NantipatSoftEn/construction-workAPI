@@ -8,7 +8,9 @@ var cartServices = require('../service/cartService');
 var productServices = require('../service/productService');
 var projectServices = require('../service/projectService');
 var userServices = require('../service/userService');
+var adminServices = require('../service/adminServices');
 
+app.use('/admin', adminServices);
 app.resource('article', articleServices);
 app.resource('cart', cartServices);
 app.resource('product', productServices);
