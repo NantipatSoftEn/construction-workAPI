@@ -10,8 +10,8 @@ class UserDTO {
     toObject() {
         return {
             username: this.username,
-            created_at: this.created_at,
-            updated_at: this.updated_at
+            createdAt: this.created_at,
+            updatedAt: this.updated_at
         }
     }
 }
